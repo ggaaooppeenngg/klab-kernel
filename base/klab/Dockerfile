@@ -84,7 +84,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple\n" > ~/.pip/pip.conf && \
     lightgbm==2.1.0 \
     xlrd==1.0.0 \
     h2o==3.18.0.4 \
-    mxnet==1.1.0 \
+    mxnet==1.1.0.post0 \
     wordcloud==1.4.1 \
     klab-autotime==0.0.2 \
     gensim==3.4.0 \
@@ -159,8 +159,8 @@ RUN pip2 install networkx==2.1 \
     tensorflow==0.12.0
 
 RUN pip install xlearn==0.31a1 \
-    mxnet==1.1.0.post0 \
     pystan==2.14 \
+    networkx==2.1 \
     fbprophet==0.2.1
 
 # Install chinese fonts, set minus numbers available,  and set it as default(must be set after matplotlib installed)
