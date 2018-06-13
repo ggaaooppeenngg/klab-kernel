@@ -6,6 +6,8 @@ ENV NB_USER kesci
 
 USER $NB_USER
 
+ENV CFLAGS="-I /opt/conda/lib/python3.5/site-packages/numpy/core/include $CFLAGS"
+
 # Install Jupyter and Py3 packages
 RUN mkdir -p ~/.pip/ && \
 # Add tuna mirror pypi souce index
@@ -160,10 +162,6 @@ RUN pip install xlearn==0.31a1 \
     mxnet==1.1.0.post0 \
     pystan==2.14 \
     fbprophet==0.2.1
-
-ENV CFLAGS="-I /opt/conda/lib/python3.5/site-packages/numpy/core/include $CFLAGS"
-RUN pip uninstall -y hmmlearn==0.2.0
-RUN pip install -I hmmlearn==0.2.0
 
 # Install chinese fonts, set minus numbers available,  and set it as default(must be set after matplotlib installed)
 COPY MicrosoftYaHei.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/
