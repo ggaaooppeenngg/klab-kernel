@@ -25,7 +25,8 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple\n" > ~/.pip/pip.conf && \
     theano==1.0.1 \
     xgboost==0.7.post4 \
     statsmodels==0.8.0 \
-    tensorflow==1.6.0 \
+    tensorflow==1.8.0 \
+    jupyter-tensorboard \
     # biopython==1.70 \ will raise error
     line_profiler==2.0 \
     orderedmultidict==0.7.11 \
@@ -75,6 +76,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple\n" > ~/.pip/pip.conf && \
     rsa==3.4.2 \
     netaddr==0.7.19 \
     bs4==0.0.1 \
+    lxml==4.2.1 \
     jieba==0.39 \
     hmmlearn==0.2.0 \
     lightgbm==2.1.0 \
@@ -92,11 +94,8 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple\n" > ~/.pip/pip.conf && \
     cufflinks==0.12.1 \
     scikit-image==0.13.1 \
     bunch==1.0.1 \
-    # pytorch-py3.5
-    # http://download.pytorch.org/whl/cu75/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl \
-    torch==0.3.1 \
+    http://download.pytorch.org/whl/cpu/torch-0.4.0-cp35-cp35m-linux_x86_64.whl \
     torchvision \
-    # klab-plugin
     && \
     jupyter nbextension install --user --py vega
 
@@ -133,7 +132,7 @@ RUN python2 -m pip install \
     readability==0.2 \
     # scikit-image==0.13.1 \ install later
     beautifulsoup4==4.6.0 \
-    lxml==4.1.1 \
+    lxml==4.2.1 \
     jieba==0.39 \
     # scikit-multilearn==0.0.5 \
     # scikit-optimize==0.5.1 \
