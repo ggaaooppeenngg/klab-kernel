@@ -167,6 +167,21 @@ RUN pip install xlearn==0.31a1 \
 ENV CFLAGS="-I /opt/conda/lib/python3.5/site-packages/numpy/core/include $CFLAGS"
 RUN pip install hmmlearn==0.2.0
 
+USER root
+
+# Install caffee
+RUN apt-get update && \
+    apt-get -y install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler libgflags-dev libgoogle-glog-dev liblmdb-dev libopenblas-dev libatlas-base-dev libhdf5-dev && \
+    apt-get install -y --no-install-recommends libboost-all-dev
+RUN wget http://oimw2b6jj.bkt.clouddn.com/caffe-master.zip && unzip caffe-master && mv caffe-master /opt/caffee && rm caffe-master.zip && \
+    cd /opt/caffee && wget http://oimw2b6jj.bkt.clouddn.com/Makefile2.config -O Makefile.config && \
+    for req in $(cat python/requirements.txt); do pip2 install $req; done && \
+    make -j 4 pycaffe
+
+RUN PYTHONPATH=/opt/caffee/python python2 -c "import caffe"
+
+
+USER kesci
 # Install chinese fonts, set minus numbers available,  and set it as default(must be set after matplotlib installed)
 COPY MicrosoftYaHei.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/
 COPY MicrosoftYaHei.ttf /usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/fonts/ttf/
